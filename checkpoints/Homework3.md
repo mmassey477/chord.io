@@ -6,4 +6,12 @@
 
 4. Unfortunately I don't have a lot on the front end setup yet so the pictures are mostly of code and docker logs.
 
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/home.png)
+
 ![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/app.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/spotify-code.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/logs.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/code.png)
