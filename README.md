@@ -23,3 +23,10 @@ You will now have to install all of the dependencies using npm. To do this, navi
 ```
 npm install
 ```
+### Getting Started
+Once everything has been installed we can now build the docker images that our containers will pull when they are created. DO this by running 
+
+```
+docker-compose up
+```
+This will build all of the docker dependencies and begin serving the app through port 8443. To access the app target a browser to http://localhost:8443. This will take you to the homepage of the app.
