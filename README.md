@@ -1,4 +1,4 @@
-# Chord
+# Chord.io
 
 Chord is built using a full-stack JavaScript open-source solution, incorperating [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/). For more information see [MEANJS](https://github.com/meanjs/mean).
 
