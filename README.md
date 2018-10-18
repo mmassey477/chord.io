@@ -13,3 +13,13 @@ You should have at least version 1.21.2 of docker-compose installed. [How to ins
 
 ### Installing NodeJS
 NodeJS is required to be version 8.12.0 to run correctly with all the packages. [How to install](https://nodejs.org/en/)
+
+### Installing MongoDB-org
+Next install MongoDB-org for Ubuntu 18.04 Bionic Beaver. [How to install](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/)
+
+### Installing packages with npm
+You will now have to install all of the dependencies using npm. To do this, navigate to the project root directory and run
+
+```
+npm install
+```
