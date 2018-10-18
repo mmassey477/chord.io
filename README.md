@@ -5,6 +5,12 @@ Chord is built using a full-stack JavaScript open-source solution, incorperating
 ## Running things locally
 You'll have better luck if your operating system is Ubuntu 18.04.2 LTS (Bionic Beaver). Everything will only fit if you have more than ~1GB of free space. Your dev setup should probably be in the neighborhood of >8GB ram and >2.5GHz cpu to get performance that's not completely slow and annoying.
 
+### Cloning the app
+First step is to clone the app to your local machine. Do this by
+
+```
+git clone 
+
 ### Installing Docker
 Docker is a tool for running My computer currently uses Docker v18.06.0-ce. Follow the Docker [install instructions](https://docs.docker.com/engine/installation/linux/ubuntu/#install-from-a-package) to install Docker.
 
