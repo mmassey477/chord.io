@@ -29,7 +29,6 @@ exports.signin = function (req, res, next) {
 
   // Create the authorization URL
   var authorizeURL = spotifyApi.createAuthorizeURL(scopes);
-  console.log('Author', authorizeURL);
   res.send(authorizeURL)
 
   var code = "AQAc8Two-5StwpdDymZEJbo9K9q_djAe0Vh99Ox4KI92Z7bghg6pduvcQflpZbn8dhvJgd3DtI9rtCyT7m1IwPQwLXih3ytzgPqls4IYP0i4q-5SAYZbLk94S2WZWtfQ43-WtLMGE143gpT2iWcnFhQVfziidZYGx87WWeQHx0ZTtpJ28ei4aj4xeNUxZsgvMetmrlfjHMlsO64fnwC5exKcjVoDJ1dPZYTryX_iWBE-RoxIMYXIBYWa7w"
