@@ -4,4 +4,6 @@
 
 3. My plan from the proposal was as follows: "At this point I would like to have the Spotify API fully incorporated. I will begin by installing the api with npm. This will allow me to send requests to Spotify to manipulate and receive song data, queue data, and user data. I will need to read their documentation on the methods to add songs to queues, search songs, log a user into spotify and get the song data. These methods will be called by the backend of my application which in turn get called from http request sent from the front end by the application users." Basically I will need to finish logging in users and then using the access token to call methods of the API. 
 
-4. 
+4. Unfortunately I don't have a lot on the front end setup yet so the pictures are mostly of code and docker logs.
+
+![alt text](http://url/to/img.png)
