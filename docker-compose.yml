@@ -1,0 +1,36 @@
+version: '2'
+volumes:
+  db-data:
+    driver: local
+services:
+  application:
+    restart: always
+    build: .
+    container_name: chord-app
+    command: npm start dev
+    depends_on:
+     - mongo
+    tty: true
+    ports:
+     - "8443:8443"
+     - "35729:35729"
+    environment:
+     - PORT=8443
+     - MONGODB_URI=mongodb://mongo/chord-dev
+     - LIVERELOAD=true
+     - SPOTIFY_CLIENT_ID=e7b27f15082641df8f88e7171bc15fc8
+     - SPOTIFY_SECRET=94cb5e6fbaf74043b60939a928a25d47
+     - SPOTIFY_URI=http://localhost:8443/not-found
+     - MASTER_VERSION=3.1.49.4
+    volumes:
+     - ./:/opt/chord
+     - ./node_modules:/opt/chord/node_modules
+  mongo:
+    image: mongo
+    container_name: chord-mongodb
+    restart: always
+    tty: true
+    ports:
+     - "27017:27017"
+    volumes:
+     - db-data:/data/db

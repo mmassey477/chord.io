@@ -1,0 +1,8 @@
+{
+    "directory": "public/lib",
+    "interactive": false,
+    "resolvers": [
+      "filesystem-bower-resolver"
+    ]
+  }
+  
