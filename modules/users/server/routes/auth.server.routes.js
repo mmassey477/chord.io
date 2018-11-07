@@ -9,5 +9,7 @@ module.exports = function (app) {
   // User Routes
   var users = require('../controllers/users.server.controller');
 
+  app.route('/api/auth/spotify').post(users.spotify);
+
   app.route('/api/auth/signin').post(users.signin);
 };

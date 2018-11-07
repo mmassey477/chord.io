@@ -29,8 +29,23 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: '/modules/core/client/views/home.client.view.html',
         controller: 'HomeController',
+        controllerAs: 'vm'
+      })
+      .state('signin', {
+        url: '/signin',
+        templateUrl: 'modules/users/client/views/signin.client.view.html',
+        controller: 'AuthenticationController'
+      })
+      .state('spotify', {
+        url: '/spotify',
+        templateUrl: '/modules/party/client/views/create-join-party.client.view.html',
+        controller: 'SpotifyController',
+        controllerAs: 'vm'
+      })
+      .state('spotifyURI', {
+        url: '/spotifyURI',
+        controller: 'SpotifyURIController',
         controllerAs: 'vm'
       })
       .state('not-found', {

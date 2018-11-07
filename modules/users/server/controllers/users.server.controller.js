@@ -31,21 +31,34 @@ exports.signin = function (req, res, next) {
   var authorizeURL = spotifyApi.createAuthorizeURL(scopes);
   res.send(authorizeURL)
 
-  var code = "AQAc8Two-5StwpdDymZEJbo9K9q_djAe0Vh99Ox4KI92Z7bghg6pduvcQflpZbn8dhvJgd3DtI9rtCyT7m1IwPQwLXih3ytzgPqls4IYP0i4q-5SAYZbLk94S2WZWtfQ43-WtLMGE143gpT2iWcnFhQVfziidZYGx87WWeQHx0ZTtpJ28ei4aj4xeNUxZsgvMetmrlfjHMlsO64fnwC5exKcjVoDJ1dPZYTryX_iWBE-RoxIMYXIBYWa7w"
-
-  spotifyApi.authorizationCodeGrant(code).then(
-    function(data) {
-      console.log('The token expires in ' + data.body['expires_in']);
-      console.log('The access token is ' + data.body['access_token']);
-      console.log('The refresh token is ' + data.body['refresh_token']);
-  
-      // Set the access token on the API object to use it in later calls
-      spotifyApi.setAccessToken(data.body['access_token']);
-      spotifyApi.setRefreshToken(data.body['refresh_token']);
-    },
-    function(err) {
-      console.log('Something went wrong!', err);
-    }
-  );
-
 };
+
+exports.spotify = async function (req, resp) {
+  console.log('Testerator');
+  console.log('Query', req.body.code);
+  const code = req.body.code
+  const data = await spotifyApi.authorizationCodeGrant(code)
+  console.log('The token expires in ' + data.body['expires_in']);
+  console.log('The access token is ' + data.body['access_token']);
+  console.log('The refresh token is ' + data.body['refresh_token']);
+
+  // Set the access token on the API object to use it in later calls
+  spotifyApi.setAccessToken(data.body['access_token']);
+  spotifyApi.setRefreshToken(data.body['refresh_token']);
+
+  const me = await spotifyApi.getMe()
+  console.log('me', me.body);
+  const user = await updateUser(me.body)
+
+  resp.status(200).send(user)
+
+}
+
+async function updateUser(spotifyUser) {
+  var user = await User.find(spotifyUser.id)
+  if(!user){
+    var user = new User(spotifyUser);
+    await user.save()
+  }
+  return user
+}

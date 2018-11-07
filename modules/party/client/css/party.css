@@ -1,0 +1,16 @@
+.join-party{
+    margin-top: 50px;
+    margin-left: 40%;
+    width: 20%;
+}
+
+.create-party{
+    margin-top: 20px;
+    margin-left: 40%;
+    width: 20%;
+}
+
+#dialogWidth {
+	width:80%;
+	max-width:550px;
+}

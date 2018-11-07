@@ -18,9 +18,9 @@ services:
      - PORT=8443
      - MONGODB_URI=mongodb://mongo/chord-dev
      - LIVERELOAD=true
-     - SPOTIFY_CLIENT_ID=e7b27f15082641df8f88e7171bc15fc8
-     - SPOTIFY_SECRET=94cb5e6fbaf74043b60939a928a25d47
-     - SPOTIFY_URI=http://localhost:8443/not-found
+     - SPOTIFY_CLIENT_ID=e5f6b758cb314e1aadb6295f1f672a0d
+     - SPOTIFY_SECRET=fdb0b182dcae4456b0cc896512deadca
+     - SPOTIFY_URI=http://localhost:8443/spotifyURI
      - MASTER_VERSION=3.1.49.4
     volumes:
      - ./:/opt/chord

@@ -39,19 +39,13 @@ var validateLocalStrategyEmail = function (email) {
  * User Schema
  */
 var UserSchema = new Schema({
-  firstName: {
+  id: {
     type: String,
     trim: true,
     default: '',
     validate: [validateLocalStrategyProperty, 'Please fill in your first name']
   },
-  lastName: {
-    type: String,
-    trim: true,
-    default: '',
-    validate: [validateLocalStrategyProperty, 'Please fill in your last name']
-  },
-  displayName: {
+  display_name: {
     type: String,
     trim: true
   },
@@ -66,124 +60,18 @@ var UserSchema = new Schema({
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
   },
-  emailVerified: {
-    type: Boolean,
-    default: false
-  },
-  username: {
-    type: String,
-    unique: 'Username already exists',
-    required: 'Please fill in a username',
-    lowercase: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    default: ''
-  },
-  salt: {
-    type: String
-  },
   profileImageURL: {
     type: String
     // default: getDefaultProfileImage
   },
-  rootFolder: {
-    type: Schema.ObjectId,
-    ref: 'Folder'
-  },
-  provider: {
-    type: String,
-    required: 'Provider is required'
-  },
-  providerData: {},
-  additionalProvidersData: {},
-  roles: {
-    type: [{
-      type: String,
-      enum: ['user', 'admin', 'team-admin', 'leedv4', 'basic', 'professional', 'enterprise', 'sage', 'team-admin-menu-visible']
-    }],
-    default: ['user'],
-    required: 'Please provide at least one role'
-  },
-  updated: {
-    type: Date
-  },
-  created: {
-    type: Date,
-    default: Date.now
-  },
-  surveyResponses : [{
-    question: {
-      type: String
-    },
-    response: {
-      type: String
-    }
-  }],
-  phone: {
+  type: {
     type: String
   },
-  usage: {
+  product: {
     type: String
-  },
-  organization: {
-    type: String
-  },
-  lastLogin: {
-    type: Date
   },
   country: {
     type: String
-  },
-  street: {
-    type: String
-  },
-  city: {
-    type: String
-  },
-  state: {
-    type: String
-  },
-  zip: {
-    type: Number
-  },
-  defaultUnits: {
-    type: String
-  },
-  /* For reset password */
-  resetPasswordToken: {
-    type: String
-  },
-  resetPasswordExpires: {
-    type: Date
-  },
-  token: {
-    type: String,
-    default: ''
-  },
-  team: {
-    type: Schema.ObjectId,
-    ref: 'Team'
-  },
-  workers: {
-    type: Number
-  },
-  automaticEmails: {
-    type: Boolean,
-    default: true
-  },
-  automaticSimulations: {
-    type: Boolean,
-    default: true
-  },
-  automaticRevitReflectance: {
-    type: Boolean,
-    default: false
-  },
-  automaticRevitFilter: {
-    type: Boolean,
-    default: true
   }
 });
 
@@ -215,15 +103,6 @@ UserSchema.pre('save', function (next) {
     this.salt = crypto.randomBytes(16).toString('base64');
     this.password = this.hashPassword(this.password);
   }
-
-
-  if (!this.profileImageURL) {
-    this.profileImageURL = getDefaultProfileImage()
-  }
-
-  // don't save 'team-admin-menu-visible' role to the database
-  this.roles = this.roles.filter(r => r !== 'team-admin-menu-visible')
-
   next();
 });
 

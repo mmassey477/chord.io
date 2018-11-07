@@ -1,14 +1,11 @@
-<div ng-controller="HeaderController as vm" style="background-color: #00c92f">
+<div ng-controller="HeaderController as vm">
   <div class="navbar-header">
-    <a ui-sref="home" class="navbar-brand" style="color: black">Chord.io</a>
+    <img ui-sref="home" ng-src="/modules/core/client/img/chordLogo.png" style="height: 50px; margin: 10px; cursor: pointer;">
   </div>
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
-    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
+    <ul class="nav navauthenticationbar-nav navbar-right">
       <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a ng-click="vm.login()">Login to Spotify</a>
-      </li>
-      <li class="dropdown" uib-dropdown>
+      <li class="dropdown" uib-dropdown ng-if="vm.user">
         <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
           <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
           <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>

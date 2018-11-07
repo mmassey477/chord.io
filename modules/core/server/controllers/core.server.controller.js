@@ -8,11 +8,11 @@ var validator = require('validator'),
  * Render the main application page
  */
 exports.renderIndex = function (req, res) {
-  console.log('Rendering index');
+  console.log('Rendering index', req.user);
   var safeUserObject = null;
   if (req.user) {
     safeUserObject = {
-      displayName: validator.escape(req.user.displayName),
+      display_name: validator.escape(req.user.display_name),
       provider: validator.escape(req.user.provider),
       username: validator.escape(req.user.username),
       created: req.user.created.toString(),
@@ -26,7 +26,7 @@ exports.renderIndex = function (req, res) {
   }
 
   res.render('modules/core/server/views/index', {
-    user: JSON.stringify(safeUserObject),
+    user: safeUserObject,
     sharedConfig: JSON.stringify(config.shared)
   });
 };
