@@ -7,4 +7,14 @@ For this deadline I worked a lot on integrating the Spotify api into the structu
 3. What you had planned to do for the next deadline.
 This turn in will be the final app ready for testing. I am hoping to get a lot of it done over Fall break as it is the most work. One thing that I will have to research is how to have a live list of all the songs in the queue, not unlike how all the changes on a Google doc can be seen live by all the users. This week I will also be done with rest of the front end and all the function calls to the backend. For the front end I will have the page, to either join an existing party or create your own new party, fully done with the functions that go along with it. I will also have the main voting page for the members of the party to suggest new songs and other members to vote on those songs. This will require a queue object that is saved and updated to the database when a new song has been approved. I will also have the main page for the host which will have the current song playing as the focus with the usual music controls under it. It will also have the queue list under it with the number of votes listed by each song. The host will have the ultimate control over whether to play the song or not by deleting it for the queue. 
 
+4. 
 
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/home.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/app.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/spotify-code.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/logs.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/code.png)
