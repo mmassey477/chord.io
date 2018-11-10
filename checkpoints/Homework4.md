@@ -9,12 +9,10 @@ This turn in will be the final app ready for testing. I am hoping to get a lot o
 
 4. 
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/home.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/welcome.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/app.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/spotify.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/spotify-code.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/party.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/logs.png)
-
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/code.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/dialog.png)
