@@ -8,7 +8,6 @@ module.exports = {
   },
   port: process.env.PORT || 3000,
   host: process.env.HOST || '0.0.0.0',
-  managerQueue: process.env.MANAGER_QUEUE,
   scratchDir: './scratch/',
   templateEngine: 'swig',
   // Session Cookie settings
@@ -37,26 +36,5 @@ module.exports = {
     xssProtection: true
   },
   logo: 'modules/core/client/img/brand/logo.png',
-  favicon: 'modules/core/client/img/brand/favicon.ico',
-  uploads: {
-    profileUpload: {
-      dest: './modules/users/client/img/profile/uploads/', // Profile upload destination path
-      limits: {
-        fileSize: 10 * 1024 * 1024 // Max file size in bytes (10 MB)
-      }
-    },
-    modelImportUpload: {
-      dest: './scratch/', // skp model destination path
-      limits: {
-        fileSize: 1000 * 1024 * 1024 // Max file size in bytes (1000 MB)
-      }
-    }
-  },
-  stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-  hashingSecret: process.env.HASHING_SECRET,
-  designSharingKey: process.env.DESIGN_SHARING_KEY,
-  reportSharingKey: process.env.REPORT_SHARING_KEY,
-  hashingAlgorithm: process.env.HASHING_ALGORITHM,
-  jwtPrivateKey: process.env.JWT_PRIVATE_KEY,
-  masterVersion: process.env.MASTER_VERSION
+  favicon: 'modules/core/client/img/brand/favicon.ico'
 };

@@ -15,7 +15,6 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: process.env.SPOTIFY_URI
 });
 
-
 exports.signin = function (req, res, next) {
   var scopes = ['user-read-private', 'user-read-email'],
   redirectUri = process.env.SPOTIFY_URI,
@@ -26,7 +25,6 @@ exports.signin = function (req, res, next) {
     redirectUri: redirectUri,
     clientId: clientId
   });
-
   // Create the authorization URL
   var authorizeURL = spotifyApi.createAuthorizeURL(scopes);
   res.send(authorizeURL)
@@ -34,8 +32,6 @@ exports.signin = function (req, res, next) {
 };
 
 exports.spotify = async function (req, resp) {
-  console.log('Testerator');
-  console.log('Query', req.body.code);
   const code = req.body.code
   const data = await spotifyApi.authorizationCodeGrant(code)
   console.log('The token expires in ' + data.body['expires_in']);
@@ -49,9 +45,9 @@ exports.spotify = async function (req, resp) {
   const me = await spotifyApi.getMe()
   console.log('me', me.body);
   const user = await updateUser(me.body)
-
+  req.session.user = user;
+  req.session.access_token = data.body['access_token']
   resp.status(200).send(user)
-
 }
 
 async function updateUser(spotifyUser) {
@@ -61,4 +57,14 @@ async function updateUser(spotifyUser) {
     await user.save()
   }
   return user
+}
+
+exports.searchSong = async function(song, token){
+  console.log('song', song);
+  spotifyApi.setAccessToken(token);
+  var results = await spotifyApi.searchTracks(song, {limit : 5}).then((results) => {
+    console.log('results', results.body.tracks.items);
+    return results.body.tracks.items;
+  })
+  return results
 }

@@ -7,7 +7,10 @@ var config = require('../config'),
   mongoose = require('./mongoose'),
   express = require('./express'),
   chalk = require('chalk'),
-  seed = require('./seed');
+  seed = require('./seed')
+
+var app = require('express')();
+var http = require('http').Server(app);
 
 function seedDB() {
   if (config.seedDB && config.seedDB.seed) {
@@ -100,7 +103,17 @@ module.exports.start = function start(callback) {
 
       if (callback) callback(app, db, config);
     });
+    var io = require('socket.io')(server);
+    console.log(io);
+    io.on('connection', function(socket){
 
+      socket.on("new song", function(song){
+        socket.broadcast.emit("new song", song)
+      })
+
+      socket.emit("message", "It worked");
+      console.log('a user connected');
+    });
     server.timeout = 5 * 60 * 1000 // 5 minutes (up from default 2)
 
   });

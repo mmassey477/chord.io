@@ -21,7 +21,7 @@ services:
      - SPOTIFY_CLIENT_ID=e5f6b758cb314e1aadb6295f1f672a0d
      - SPOTIFY_SECRET=fdb0b182dcae4456b0cc896512deadca
      - SPOTIFY_URI=http://localhost:8443/spotifyURI
-     - MASTER_VERSION=3.1.49.4
+     - NODE_ENV = development
     volumes:
      - ./:/opt/chord
      - ./node_modules:/opt/chord/node_modules

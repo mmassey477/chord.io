@@ -1,12 +1,22 @@
 <md-dialog id="dialogWidth">
     <md-dialog-content class="md-dialog-content">
-        <h2 class="md-title">Join a Party</h2>
-        <span>
+        <h2>Join a Party</h2>
+        <h3 layout="row">
             Options:
-        </span>
+        </h3>
+        <div style="height: 100%; margin-left: 10px; margin-right: 10px; background-color: rgb(0, 160, 0);">
+            <div layout="row">
+                <span flex="50" style="margin: 4px;">
+                    Party Name:
+                </span>
+                <md-input-container flex="50" style="margin: 0px 5px 0px 0px; right: 0;">
+                    <input style="margin-right: 5px;" type="text" ng-model="vm.partyName" required>
+                </md-input-container>
+            </div>
+        </div>
     </md-dialog-content>
     <md-dialog-actions>
-        <md-button class="md-primary" ng-click="vm.close()">CANCEL</md-button>
-        <md-button class="md-primary" ng-click="vm.okay()">OK</md-button>
+        <md-button class="md-primary cancel-button" ng-click="vm.close()">CANCEL</md-button>
+        <md-button class="md-primary ok-button" ng-click="vm.okay()">OK</md-button>
     </md-dialog-actions>
 </md-dialog>

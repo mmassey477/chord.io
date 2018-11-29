@@ -14,3 +14,12 @@
 	width:80%;
 	max-width:550px;
 }
+
+.cancel-button {
+    color: rgb(0, 160, 0) !important;
+}
+
+.ok-button {
+    background-color: rgb(0, 160, 0) !important;
+    color: white !important;
+}

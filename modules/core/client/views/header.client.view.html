@@ -1,22 +1,28 @@
-<div ng-controller="HeaderController as vm">
+<div ng-controller="HeaderController as vm" style="background-color: rgb(41, 41, 41); height: 50px;">
   <div class="navbar-header">
-    <img ui-sref="home" ng-src="/modules/core/client/img/chordLogo.png" style="height: 50px; margin: 10px; cursor: pointer;">
+    <img ui-sref="home" ng-src="/modules/core/client/img/chordLogo.png" style="height: 40px; margin: 5px; cursor: pointer;">
   </div>
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
     <ul class="nav navauthenticationbar-nav navbar-right">
       <li class="divider-vertical"></li>
-      <li class="dropdown" uib-dropdown ng-if="vm.user">
-        <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
-          <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
+      <li class="dropdown" uib-dropdown>
+        <a class="dropdown-toggle user-header-dropdown-toggle" style="color: rgb(0, 160, 0); height: 50px;" uib-dropdown-toggle role="button">
+          <span>{{vm.user.display_name}}</span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
-            <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
+          <li class="menuItemDiv">
+            <span class="menuItem" ng-click="vm.joinParty()">
+                Join Party
+            </span>
+          </li>
+          <li class="menuItemDiv">
+            <span class="menuItem" ng-click="vm.createParty()">
+              Create Party
+            </span>
           </li>
           <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
+          <li class="menuItemDiv">
+            <span class="menuItem">Signout</span>
           </li>
         </ul>
       </li>

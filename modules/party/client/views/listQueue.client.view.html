@@ -1,0 +1,17 @@
+<div style="background-color: white;">
+    <md-input-container>
+        <label>Search</label>
+        <input ng-model="vm.querySong" type="text"></input>
+    </md-input-container>
+    <md-button style="background-color: rgb(0,160,0)" ng-click="vm.searchSong(vm.querySong)">
+        Search
+    </md-button>
+</div>
+
+<div style="background-color: rgb(0,160,0); height: 30px; width: 100%;"></div>
+
+<div style="background-color: white; height: 300px; width: 100%;">
+    <div ng-repeat="song in vm.searchResults">
+        {{song.name}}
+    </div>
+</div>

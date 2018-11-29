@@ -5,22 +5,21 @@
     .module('core')
     .controller('HeaderController', HeaderController);
 
-  HeaderController.$inject = ['$scope', '$state', 'Authentication', 'menuService', "$http"];
+  HeaderController.$inject = ['$scope', '$state', 'Authentication', 'PartyService', "$http"];
 
-  function HeaderController($scope, $state, Authentication, menuService, $http) {
+  function HeaderController($scope, $state, Authentication, PartyService, $http) {
     var vm = this;
     vm.user = Authentication.user
-    console.log('userr', vm.user);
-    vm.accountMenu = menuService.getMenu('account').items[0];
-    vm.authentication = Authentication;
     vm.isCollapsed = false;
-    vm.menu = menuService.getMenu('topbar');
+    vm.joinParty = PartyService.joinParty;
+    vm.createParty = PartyService.createParty;
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
 
     function stateChangeSuccess() {
       // Collapsing the menu after navigation
       vm.isCollapsed = false;
+      vm.user = Authentication.user;     
     }
   }
 }());

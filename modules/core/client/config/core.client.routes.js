@@ -32,6 +32,12 @@
         controller: 'HomeController',
         controllerAs: 'vm'
       })
+      .state('party', {
+        url: '/party',
+        templateUrl: 'modules/party/client/views/listQueue.client.view.html',
+        controller: 'DjController',
+        controllerAs: 'vm'
+      })
       .state('signin', {
         url: '/signin',
         templateUrl: 'modules/users/client/views/signin.client.view.html',
@@ -84,4 +90,13 @@
         }
       });
   }
+
+  getUser.$inject = ['Authentication'];
+
+  function getUser(Authentication) {
+    var user = Authentication.user;
+    console.log('Userrr', user);
+    return user.$promise;
+  }
+
 }());

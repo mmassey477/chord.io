@@ -8,23 +8,10 @@ var validator = require('validator'),
  * Render the main application page
  */
 exports.renderIndex = function (req, res) {
-  console.log('Rendering index', req.user);
   var safeUserObject = null;
-  if (req.user) {
-    safeUserObject = {
-      display_name: validator.escape(req.user.display_name),
-      provider: validator.escape(req.user.provider),
-      username: validator.escape(req.user.username),
-      created: req.user.created.toString(),
-      roles: req.user.roles,
-      profileImageURL: req.user.profileImageURL,
-      email: validator.escape(req.user.email),
-      lastName: validator.escape(req.user.lastName),
-      firstName: validator.escape(req.user.firstName),
-      additionalProvidersData: req.user.additionalProvidersData
-    };
+  if (req.session.user) {
+    safeUserObject = req.session.user[0]
   }
-
   res.render('modules/core/server/views/index', {
     user: safeUserObject,
     sharedConfig: JSON.stringify(config.shared)
