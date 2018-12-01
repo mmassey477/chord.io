@@ -5,3 +5,14 @@
 3. Also this week, we did some user testing which was very beneficial because I can't really test having two users connect at the same time without having 2 computers. It also gave me a good chance to see how my app will perform when I demo it to the class at the end of the semester. The feedback I received was when a new user logged in it still said my name at the top because my name was still cached on the server so I will have to sort this bug out before the final. Also we were able to pinpoint the IP address my computer exposes to the network which will prove valueable for the live demo.
 
 4. For the final I had planned on doing a lot of testing and revising. Also, for this week I will need to make sure I have the test environment fully ready for the demonstration. I will need to make sure the docker environment is set up correctly and also make sure my computer is visible from other computers on the network which we were able to confirm on Thursday. I will also do the final front end UI because I ran out of time to finish that for this turn in, but it should be a fast and simple proccess because I already have the data on the front end.
+
+
+5. 
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/welcome.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/spotify.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/party.png)
+
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/dialog.png)
