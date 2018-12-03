@@ -25,7 +25,7 @@
     function connect() {
       // Connect only when authenticated
       if (Authentication.user) {
-        service.socket = io("http://localhost:8443");
+        service.socket = io();
       }
     }
 
