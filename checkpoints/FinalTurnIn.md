@@ -5,10 +5,10 @@
 
 4. 
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/welcome.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/signin.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/spotify.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/signedin.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/party.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/popup.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/dialog.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/queue.png)
