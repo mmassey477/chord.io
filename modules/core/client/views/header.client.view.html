@@ -1,28 +1,30 @@
-<div ng-controller="HeaderController as vm" style="background-color: rgb(41, 41, 41); height: 50px;">
+<div ng-controller="HeaderController as vm" style="background-color: rgb(41, 41, 41); height: 70px;">
   <div class="navbar-header">
-    <img ui-sref="home" ng-src="/modules/core/client/img/chordLogo.png" style="height: 40px; margin: 5px; cursor: pointer;">
+    <img ui-sref="home" ng-src="/modules/core/client/img/chordLogo.png" style="height: 60px; margin: 5px; cursor: pointer;">
   </div>
+  <h1 ng-show="vm.onParty" style="color: rgb(0, 160, 0); margin: 10px 0px 0px 33%; float: left;">{{vm.partyName}}</h1>
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
     <ul class="nav navauthenticationbar-nav navbar-right">
       <li class="divider-vertical"></li>
       <li class="dropdown" uib-dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" style="color: rgb(0, 160, 0); height: 50px;" uib-dropdown-toggle role="button">
-          <span>{{vm.user.display_name}}</span> <b class="caret"></b>
+        <a class="dropdown-toggle user-header-dropdown-toggle" style="color: rgb(0, 160, 0); height: 70px;" uib-dropdown-toggle role="button" ng-if="vm.user"> 
+          <img ng-if="vm.user.profileImageURL" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;" src="{{vm.user.profileImageURL}}">
+          <span style="font-size: 20px;">{{vm.user.display_name}}</span> <b style="font-size: 20px;" class="caret"></b>
         </a>
-        <ul class="dropdown-menu" role="menu">
-          <li class="menuItemDiv">
-            <span class="menuItem" ng-click="vm.joinParty()">
+        <ul style="width: 250px;" class="dropdown-menu" role="menu">
+          <li class="menuItemDiv" ng-click="vm.joinParty()">
+            <span style="font-size: 18px;" class="menuItem">
                 Join Party
             </span>
           </li>
-          <li class="menuItemDiv">
-            <span class="menuItem" ng-click="vm.createParty()">
+          <li class="menuItemDiv" ng-click="vm.createParty()">
+            <span style="font-size: 18px;" class="menuItem">
               Create Party
             </span>
           </li>
           <li class="divider"></li>
-          <li class="menuItemDiv">
-            <span class="menuItem">Signout</span>
+          <li class="menuItemDiv" ng-click="vm.signout()">
+            <span style="font-size: 18px;" class="menuItem">Signout</span>
           </li>
         </ul>
       </li>

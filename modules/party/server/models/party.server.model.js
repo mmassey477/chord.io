@@ -19,6 +19,10 @@ var mongoose = require('mongoose'),
 var PartySchema = new Schema({
   name: {
     type: String
+  },
+  queue: {
+    type: [String],
+    default: []
   }
 });
 

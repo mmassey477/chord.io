@@ -10,7 +10,7 @@ var validator = require('validator'),
 exports.renderIndex = function (req, res) {
   var safeUserObject = null;
   if (req.session.user) {
-    safeUserObject = req.session.user[0]
+    safeUserObject = req.session.user
   }
   res.render('modules/core/server/views/index', {
     user: safeUserObject,

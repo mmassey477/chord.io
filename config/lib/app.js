@@ -108,7 +108,7 @@ module.exports.start = function start(callback) {
     io.on('connection', function(socket){
 
       socket.on("new song", function(song){
-        socket.broadcast.emit("new song", song)
+        socket.broadcast.emit("display song", song)
       })
 
       socket.emit("message", "It worked");

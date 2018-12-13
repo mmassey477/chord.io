@@ -1,10 +1,9 @@
 <div ng-controller="AuthenticationController as vm">
     <div ng-if="!vm.user" style="margin-top: 20px;">
         <center>
-                <h4>Welcome to Chord.io</h4>
-                Please <a ng-click="vm.login()" style="cursor: pointer;">sign in</a> to Spotify or sign up <a href="https://www.spotify.com/us/signup/">here</a>
+            <h2>Welcome to Chord.io</h2>
+            <h3>Please <md-button ng-click="vm.login()" style="cursor: pointer; background-color: rgb(0,160,0)">sign in</md-button> to Spotify or sign up <a style="color: black;" href="https://www.spotify.com/us/signup/"><md-button style="cursor: pointer; background-color: rgb(0,160,0)">here</md-button></a></h3>
         </center>
     </div>
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
   </div>
   

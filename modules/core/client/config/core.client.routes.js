@@ -33,10 +33,13 @@
         controllerAs: 'vm'
       })
       .state('party', {
-        url: '/party',
+        url: '/party/:partyId',
         templateUrl: 'modules/party/client/views/listQueue.client.view.html',
         controller: 'DjController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          partyResolve: getParty
+        }
       })
       .state('signin', {
         url: '/signin',
@@ -98,5 +101,16 @@
     console.log('Userrr', user);
     return user.$promise;
   }
+
+  getParty.$inject = ['$stateParams', 'PartyService'];
+
+    function getParty($stateParams, PartyService) {
+      var party = PartyService.party.get({
+        partyId: $stateParams.partyId
+      }).$promise;
+      console.log("partty", party);
+      return party
+      
+    }
 
 }());

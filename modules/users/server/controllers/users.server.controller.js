@@ -16,7 +16,7 @@ var spotifyApi = new SpotifyWebApi({
 });
 
 exports.signin = function (req, res, next) {
-  var scopes = ['user-read-private', 'user-read-email'],
+  var scopes = ['user-read-private', 'user-read-email', 'playlist-modify-public', 'playlist-modify-private'],
   redirectUri = process.env.SPOTIFY_URI,
   clientId = process.env.SPOTIFY_CLIENT_ID
 
@@ -51,11 +51,16 @@ exports.spotify = async function (req, resp) {
 }
 
 async function updateUser(spotifyUser) {
-  var user = await User.find(spotifyUser.id)
+  var user = await User.findOne({"id": spotifyUser.id})
   if(!user){
     var user = new User(spotifyUser);
+    user.profileImageURL = spotifyUser.images[0].url
+    await user.save()
+  } else {
+    user.profileImageURL = spotifyUser.images[0].url
     await user.save()
   }
+  console.log("User", user)
   return user
 }
 
@@ -67,4 +72,45 @@ exports.searchSong = async function(song, token){
     return results.body.tracks.items;
   })
   return results
+}
+
+exports.signout = async function(req, res){
+  console.log("In signout");
+  console.log("req.session", req.session);
+  
+  await https.get('https://www.spotify.com/logout/')
+  console.log("After request");
+  req.logout()
+  req.user = {}
+  res.status(200).send()
+}
+
+exports.createPlaylist = async function(userId, partyName, token){
+  console.log("userId", userId);
+  spotifyApi.setAccessToken(token);
+  spotifyApi.addTracksToPlaylist('2gMPq32y4eCsf62ypCJ1bh', ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"])
+  .then(function(data) {
+    console.log('Added tracks to playlist!');
+  }, function(err) {
+    console.log('Something went wrong!', err);
+  });
+}
+
+exports.addSongToPlaylist = async function(songId){
+  spotifyApi.refreshAccessToken().then(
+    function(data) {
+      console.log('The access token has been refreshed!');
+      spotifyApi.setAccessToken(data.body['access_token']);
+      spotifyApi.addTracksToPlaylist('2gMPq32y4eCsf62ypCJ1bh', ["spotify:track:" + songId])
+      .then(function(data) {
+        console.log('Retrieved playlists', data.body);
+      },function(err) {
+        console.log('Something went wrong!', err);
+      });
+      // Save the access token so that it's used in future calls
+    },
+    function(err) {
+      console.log('Could not refresh access token', err);
+    }
+  );
 }

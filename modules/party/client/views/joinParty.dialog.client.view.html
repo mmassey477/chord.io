@@ -4,7 +4,7 @@
         <h3 layout="row">
             Options:
         </h3>
-        <div style="height: 100%; margin-left: 10px; margin-right: 10px; background-color: rgb(0, 160, 0);">
+        <div style="height: 100%; margin-left: 10px; margin-right: 10px;">
             <div layout="row">
                 <span flex="50" style="margin: 4px;">
                     Party Name:
@@ -13,10 +13,13 @@
                     <input style="margin-right: 5px;" type="text" ng-model="vm.partyName" required>
                 </md-input-container>
             </div>
+            <div layout="row">
+                <span ng-if="!vm.partyFound" style="color: red; right: 0;">Party not found</span>
+            </div>
         </div>
     </md-dialog-content>
     <md-dialog-actions>
         <md-button class="md-primary cancel-button" ng-click="vm.close()">CANCEL</md-button>
-        <md-button class="md-primary ok-button" ng-click="vm.okay()">OK</md-button>
+        <md-button class="md-primary ok-button" ng-click="vm.searchParty()">OK</md-button>
     </md-dialog-actions>
 </md-dialog>

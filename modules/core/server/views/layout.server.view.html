@@ -16,7 +16,7 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}" type="text/css">{% endfor %}
 </head>
 
-<body class="ng-cloak" style="overflow-y: visible; background-color: black;">
+<body class="ng-cloak" style="overflow-y: hidden; background-color: black;">
 
   <section class="content" ng-class="{noMargin: $root.printPreview, 'no-scrollbar': $root.inDesignView}">
     <div ng-include="'/modules/core/client/views/header.client.view.html'"></div>

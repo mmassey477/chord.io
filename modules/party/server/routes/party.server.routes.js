@@ -11,6 +11,12 @@ module.exports = function (app) {
 
   app.route('/api/party/newParty').post(party.newParty);
 
+  app.route('/api/party/searchParty').post(party.searchParty);
+
   app.route('/api/party/searchSong').post(party.searchSong);
+
+  app.route('/api/party/addToQueue').post(party.addToQueue);
+
+  app.route('/api/party/:partyId').get(party.getParty)
 
 };

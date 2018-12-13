@@ -12,4 +12,6 @@ module.exports = function (app) {
   app.route('/api/auth/spotify').post(users.spotify);
 
   app.route('/api/auth/signin').post(users.signin);
+
+  app.route('/api/auth/signout').get(users.signout);
 };
