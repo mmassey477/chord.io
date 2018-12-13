@@ -13,4 +13,4 @@
 
 ![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/queue.png)
 
-![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/phone.png)
+![alt text](https://github.com/mmassey477/chord.io/blob/master/checkpoints/phone.jpg)
